@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="Friend Editor" Height="500" Width="500">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
     </Grid>
 </Window>
