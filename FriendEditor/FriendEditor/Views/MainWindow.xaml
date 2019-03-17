@@ -32,7 +32,9 @@
             </ListView>
 
             <Grid Grid.Column="1">
-                
+                <StackPanel Margin="10">
+                    
+                </StackPanel>
             </Grid>
             
         </Grid>
