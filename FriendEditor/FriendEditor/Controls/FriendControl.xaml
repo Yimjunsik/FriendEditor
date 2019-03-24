@@ -41,6 +41,11 @@
             <TextBlock Text="Name"/>
             <TextBlock FontWeight="Bold" Text="{Binding Name}" />
         </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBlock Margin="{StaticResource InfoMargin}" Text="Email" />
+            <TextBlock FontWeight="Bold" Text="{Binding Email}" />
+        </StackPanel>
         
     </Grid>
 </UserControl>
