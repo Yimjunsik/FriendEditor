@@ -13,6 +13,11 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="ToolWindow">
     <Grid>
-        
+        <Grid.Resources>
+            <Thickness x:Key="InfoMargin">0,10,0,0</Thickness>
+        </Grid.Resources>
+        <StackPanel Margin="10">
+            
+        </StackPanel>
     </Grid>
 </Window>
