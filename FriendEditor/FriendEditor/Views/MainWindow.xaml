@@ -38,6 +38,12 @@
                             Padding="5"
                             Command="{Binding AddFriendCommand}"
                             Content="Add" />
+                        <Button
+                            Margin="10,0,0,0"
+                            Padding="5"
+                            Command="{Binding EditFriendCommand}"
+                            CommandParameter="{Binding SelectedFriend}"
+                            Content="Edit" />
                     </StackPanel>
                 </StackPanel>
             </Grid>
