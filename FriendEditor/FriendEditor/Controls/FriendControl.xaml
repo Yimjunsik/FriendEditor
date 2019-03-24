@@ -36,5 +36,11 @@
                 Source="/Assets/Code.png"
                 Visibility="{Binding IsDeveloper, Converter={StaticResource BooleanToVisibilityConverter}}" />
         </Grid>
+
+        <StackPanel Grid.Column="1" Margin="10,0,0,0">
+            <TextBlock Text="Name"/>
+            <TextBlock FontWeight="Bold" Text="{Binding Name}" />
+        </StackPanel>
+        
     </Grid>
 </UserControl>
