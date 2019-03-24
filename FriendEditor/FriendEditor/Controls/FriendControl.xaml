@@ -49,7 +49,8 @@
             <TextBlock Margin="{StaticResource InfoMargin}" Text="Is developer" />
             <TextBlock FontWeight="Bold" Text="{Binding IsDeveloper}" />
 
+            <TextBlock Margin="{StaticResource InfoMargin}" Text="Birth date" />
+            <TextBlock FontWeight="Bold" Text="{Binding BirthDate, StringFormat={}{0:yyyy/MM/dd}}" />
         </StackPanel>
-        
     </Grid>
 </UserControl>
