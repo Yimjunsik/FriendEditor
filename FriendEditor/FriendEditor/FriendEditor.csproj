@@ -99,6 +99,7 @@
     <Compile Include="EventArgs\OpenEditWindowArgs.cs" />
     <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\IFriend.cs" />
+    <Compile Include="Services\EditWindowController.cs" />
     <Compile Include="Services\IDataProvider.cs" />
     <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\IEditWindowController.cs" />
