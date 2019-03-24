@@ -21,6 +21,20 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+        <Grid>
+            <Image
+                Width="100"
+                Height="100"
+                Source="/Assets/User.png" />
+            <Image
+                Width="24"
+                Height="24"
+                Margin="0,0,10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Stretch="Uniform"
+                Source="/Assets/Code.png"
+                Visibility="{Binding IsDeveloper, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        </Grid>
     </Grid>
 </UserControl>
