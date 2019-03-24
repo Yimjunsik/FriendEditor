@@ -102,6 +102,7 @@
     <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\IEditWindowController.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>
     </Compile>
