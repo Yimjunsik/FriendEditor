@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FriendEditor.Services
 {
-    interface IDialogService
+    public interface IDialogService
     {
+        bool Confirm(string message);
+
+        void ShowMessage(string message);
+
+        void Warning(string message);
+
+        void Exception(Exception ex);
     }
 }
