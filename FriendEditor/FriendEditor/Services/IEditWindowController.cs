@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FriendEditor.EventArgs;
 
 namespace FriendEditor.Services
 {
-    interface IEditWindowController
+    public interface IEditWindowController
     {
+        /// <summary>
+        /// Show EditWindow
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        bool? ShowDialog(OpenEditWindowArgs args);
     }
 }
