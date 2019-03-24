@@ -95,6 +95,7 @@
       <DependentUpon>FriendControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="EventArgs\CloseWindowEventArgs.cs" />
     <Compile Include="EventArgs\OpenEditWindowArgs.cs" />
     <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\IFriend.cs" />
