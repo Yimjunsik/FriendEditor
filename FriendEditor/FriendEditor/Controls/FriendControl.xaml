@@ -45,6 +45,10 @@
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
             <TextBlock Margin="{StaticResource InfoMargin}" Text="Email" />
             <TextBlock FontWeight="Bold" Text="{Binding Email}" />
+
+            <TextBlock Margin="{StaticResource InfoMargin}" Text="Is developer" />
+            <TextBlock FontWeight="Bold" Text="{Binding IsDeveloper}" />
+
         </StackPanel>
         
     </Grid>
