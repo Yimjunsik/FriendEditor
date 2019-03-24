@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System.Collections.ObjectModel;
 using FriendEditor.Models;
 using FriendEditor.Services;
-
+using FriendEditor.EventArgs;
+using System.Linq;
 
 namespace FriendEditor.ViewModels
 {
@@ -26,6 +22,10 @@ namespace FriendEditor.ViewModels
         public MainViewModel(IDataProvider dataProvider, IEditWindowController editWindowController, IDialogService dialogService)
         {
             DataProvider = dataProvider;
+            EditWindowController = editWindowController;
+            DialogService = dialogService;
+
+            AddFriendCommand = new RelayCommand(AddFriend);
 
         }
         #endregion
@@ -66,5 +66,16 @@ namespace FriendEditor.ViewModels
         }
 
         #endregion Properties
+
+        #region Methods
+
+        private void AddFriend()
+        {
+            var result = EditWindowController.ShowDialog(new EventArgs.OpenEditWindowArgs { Type = ActionType.Add });
+            if (result.HasValue && result.Value)
+            {
+                AllFriends = new ObservableCollection<Friend>(DataProvider.GetAllFriends().OfType<Friend>());
+            }
+        }
     }
 }
