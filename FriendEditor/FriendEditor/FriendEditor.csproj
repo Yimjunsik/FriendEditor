@@ -99,6 +99,7 @@
     <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\IFriend.cs" />
     <Compile Include="Services\IDataProvider.cs" />
+    <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\IEditWindowController.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\EditWindow.xaml.cs">
