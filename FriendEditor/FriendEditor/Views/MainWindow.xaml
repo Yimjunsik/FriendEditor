@@ -33,7 +33,12 @@
 
             <Grid Grid.Column="1">
                 <StackPanel Margin="10">
-                    
+                    <StackPanel Orientation="Horizontal">
+                        <Button
+                            Padding="5"
+                            Command="{Binding AddFriendCommand}"
+                            Content="Add" />
+                    </StackPanel>
                 </StackPanel>
             </Grid>
             
