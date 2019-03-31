@@ -109,7 +109,31 @@ namespace FriendEditor.Services
 
         public IFriend GetFriendById(string id)
         {
-            throw new NotImplementedException();
+            Friend friend = null;
+            
+            using (SQLiteConnection conn = new SQLiteConnection(ConnectionString))
+            {
+                conn.Open();
+
+                string sqlSelect = $@"SELECT * FROM Friend WHERE Id='{id}'";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlSelect, conn))
+                {
+                    SQLiteDataReader dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        friend = new Friend();
+
+                        friend.Id = dr["Id"].ToString();
+                        friend.Name = dr["Name"].ToString();
+                        friend.Email = dr["Email"] != null ? dr["Email"].ToString() : string.Empty;
+                        friend.IsDeveloper = dr["IsDeveloper"] != null ? (bool)(dr["IsDeveloper"]) : false;
+                        friend.BirthDate = dr["BirthDate"] != null ? (DateTime)(dr["BirthDate"]) : DateTime.MinValue;
+                    }
+                }
+            }
+
+            return friend;
         }
 
         public bool Insert(IFriend friend)
