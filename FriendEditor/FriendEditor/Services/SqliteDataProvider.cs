@@ -69,12 +69,42 @@ namespace FriendEditor.Services
 
         public bool Delete(IFriend friend)
         {
-            throw new NotImplementedException();
+            string sqlDelete = $@"DELETE FROM Friend WHERE Id='{friend.Id}'";
+            return ExeNonQueryCommand(sqlDelete);
         }
 
         public List<IFriend> GetAllFriends()
         {
-            throw new NotImplementedException();
+            var list = new List<IFriend>();
+
+            using (SQLiteConnection conn = new SQLiteConnection(ConnectionString))
+            {
+                conn.Open();
+                string sqlSelect = $@"SELECT * FROM Friend";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(sqlSelect, conn))
+                {
+                    using (SQLiteDataAdapter da = new SQLiteDataAdapter(cmd))
+                    {
+                        var dataTable = new DataTable();
+                        da.Fill(dataTable);
+
+                        foreach (DataRow row in dataTable.Rows)
+                        {
+                            var friend = new Friend();
+
+                            friend.Id = row["Id"].ToString();
+                            friend.Name = row["Name"].ToString();
+                            friend.Email = row["Email"] != null ? row["Email"].ToString() : string.Empty;
+                            friend.IsDeveloper = row["IsDeveloper"] != null ? (bool)(row["IsDeveloper"]) : false;
+                            friend.BirthDate = row["BirthDate"] != null ? (DateTime)(row["BirthDate"]) : DateTime.MinValue;
+
+                            list.Add(friend);
+                        }
+                    }
+                }
+            }
+            return list;
         }
 
         public IFriend GetFriendById(string id)
