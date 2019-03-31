@@ -138,12 +138,14 @@ namespace FriendEditor.Services
 
         public bool Insert(IFriend friend)
         {
-            throw new NotImplementedException();
+            string sqlInsert = $@"INSERT INTO Friend VALUES('{friend.Id}','{friend.Name}','{friend.Email}','{friend.IsDeveloper}','{friend.BirthDate.ToString("s")}')";
+            return ExeNonQueryCommand(sqlInsert);
         }
 
         public bool Update(IFriend friend)
         {
-            throw new NotImplementedException();
+            string sqlUpdate = $@"UPDATE Friend SET Name='{friend.Name}', Email='{friend.Email}', IsDeveloper='{friend.IsDeveloper}', BirthDate='{friend.BirthDate.ToString("s")}' WHERE Id='{friend.Id}'";
+            return ExeNonQueryCommand(sqlUpdate);
         }
 
         private bool ExeNonQueryCommand(string sqlCommandText)
