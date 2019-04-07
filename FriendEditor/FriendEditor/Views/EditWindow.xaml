@@ -18,7 +18,11 @@
         <Grid.Resources>
             <Thickness x:Key="InfoMargin">0,10,0,0</Thickness>
         </Grid.Resources>
-        <StackPanel Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="39*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10" Grid.ColumnSpan="2">
             <TextBlock Text="Name" />
             <TextBox
                 Margin="0,5,0,0"
@@ -64,9 +68,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                    
             </StackPanel>
-            
         </StackPanel>
     </Grid>
 </Window>
