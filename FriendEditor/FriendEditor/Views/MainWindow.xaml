@@ -19,12 +19,12 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Grid>
+        <Grid Background="{StaticResource AccentBrush}">
             <TextBlock
                 Margin="10"
                 FontSize="20"
                 FontWeight="Bold"
-
+                Foreground="White"
                 Text="Friend Editor"/>
         </Grid>
 
