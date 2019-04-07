@@ -12,7 +12,7 @@ namespace FriendEditor.Services
 
         #region Constants
 
-        public const string FileName = "Friends.sb";
+        public const string FileName = "Friends.db";
 
         #endregion Constants
 
