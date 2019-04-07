@@ -26,6 +26,10 @@ namespace FriendEditor.ViewModels
             DialogService = dialogService;
 
             AddFriendCommand = new RelayCommand(AddFriend);
+            EditFriendCommand = new RelayCommand<Friend>(EditFriend, friend => SelectedFriend != null);
+            DeleteFriendCommand = new RelayCommand<Friend>(DeleteFriend, friend => SelectedFriend != null);
+
+            AllFriends = new ObservableCollection<Friend>(dataProvider.GetAllFriends().OfType<Friend>());
 
         }
         #endregion
@@ -77,5 +81,31 @@ namespace FriendEditor.ViewModels
                 AllFriends = new ObservableCollection<Friend>(DataProvider.GetAllFriends().OfType<Friend>());
             }
         }
+
+        private void DeleteFriend(Friend friend)
+        {
+            if (DialogService.Confirm("Really want to delete this friend?"))
+            {
+                AllFriends.Remove(friend);
+                DataProvider.Delete(friend);
+                DialogService.ShowMessage("Delete friend successfully");
+            }
+        }
+
+        private void EditFriend(Friend friend)
+        {
+            var result = EditWindowController.ShowDialog(new OpenEditWindowArgs { Type = ActionType.Edit, Friend = SelectedFriend });
+            if (result.HasValue && result.Value)
+            {
+                // Remember user's selection
+                int index = AllFriends.IndexOf(SelectedFriend);
+                AllFriends = new ObservableCollection<Friend>(DataProvider.GetAllFriends().OfType<Friend>());
+
+                // re-selected the original item
+                SelectedFriend = AllFriends[index];
+            }
+        }
+
+        #endregion
     }
 }
