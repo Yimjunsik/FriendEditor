@@ -15,7 +15,7 @@ namespace FriendEditor.ViewModels
         private ObservableCollection<Friend> _allFriends;
         private Friend _selectedFriend;
 
-        #endregion
+        #endregion Variables
 
         #region Constructors
 
@@ -32,7 +32,7 @@ namespace FriendEditor.ViewModels
             AllFriends = new ObservableCollection<Friend>(dataProvider.GetAllFriends().OfType<Friend>());
 
         }
-        #endregion
+        #endregion Constructors
 
         #region Properties
 
@@ -106,6 +106,6 @@ namespace FriendEditor.ViewModels
             }
         }
 
-        #endregion
+        #endregion Methods
     }
 }
